@@ -47,4 +47,7 @@ ISSN={},
 month={Sep.},}
 ```
 
+License
+This is released under the MIT license. For more details, please refer LICENSE.
 
+"Copyright (c) 2019 Kevin Ong"
