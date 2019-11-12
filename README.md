@@ -1,102 +1,49 @@
-# Deep Reinforcement Learning for Keras
-[![Build Status](https://api.travis-ci.org/keras-rl/keras-rl.svg?branch=master)](https://travis-ci.org/keras-rl/keras-rl)
-[![Documentation](https://readthedocs.org/projects/keras-rl/badge/)](http://keras-rl.readthedocs.io/)
-[![License](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/keras-rl/keras-rl/blob/master/LICENSE)
-[![Join the chat at https://gitter.im/keras-rl/Lobby](https://badges.gitter.im/keras-rl/Lobby.svg)](https://gitter.im/keras-rl/Lobby)
+# What is this repository about?
+This is the repository for VTC paper that was presented in September 2019.
 
+## Paper Abstract
+Radio Frequency powered Cognitive Radio Networks (RF-CRN) are likely to be the eyes and ears of upcoming modern networks such as Internet of Things (IoT), requiring increased decentralization and autonomous operation. To be considered autonomous, the RF-powered network entities need to make decisions locally to maximize the network throughput under the uncertainty of any network environment. However, in complex and large-scale networks, the state and action spaces are usually large, and existing Tabular Reinforcement Learning technique is unable to find the optimal state- action policy quickly. In this paper, deep reinforcement learning is proposed to overcome the mentioned shortcomings and allow a wireless gateway to derive an optimal policy to maximize network throughput. When benchmarked against advanced DQN techniques, our proposed DQN configuration offers performance speedup of up to 1.8x with good overall performance.
 
-<table>
-  <tr>
-    <td><img src="/assets/breakout.gif?raw=true" width="200"></td>
-    <td><img src="/assets/cartpole.gif?raw=true" width="200"></td>
-    <td><img src="/assets/pendulum.gif?raw=true" width="200"></td>
-  </tr>
-</table>
+For additional details, kindly lookup IEEE Xplore Database.
 
-
-## What is it?
-
-`keras-rl` implements some state-of-the art deep reinforcement learning algorithms in Python and seamlessly integrates with the deep learning library [Keras](http://keras.io).
+## DRL Libraries Used
+`keras-rl` implements some state-of-the art deep reinforcement learning algorithms in Python and seamlessly integrates with the deep learning library [Keras](http://keras.io). Documentation is available [online](http://keras-rl.readthedocs.org).
 
 Furthermore, `keras-rl` works with [OpenAI Gym](https://gym.openai.com/) out of the box. This means that evaluating and playing around with different algorithms is easy.
 
-Of course you can extend `keras-rl` according to your own needs. You can use built-in Keras callbacks and metrics or define your own.
-Even more so, it is easy to implement your own environments and even algorithms by simply extending some simple abstract classes. Documentation is available [online](http://keras-rl.readthedocs.org).
-
+## Environment
+Custom environment is used. For understanding, 2ST represents 2 Secondary Transmitters; 3ST represents 3 Secondary Transmitters.
 
 ## What is included?
 As of today, the following algorithms have been implemented:
 
 - [x] Deep Q Learning (DQN) [[1]](http://arxiv.org/abs/1312.5602), [[2]](https://www.nature.com/articles/nature14236)
 - [x] Double DQN [[3]](http://arxiv.org/abs/1509.06461)
-- [x] Deep Deterministic Policy Gradient (DDPG) [[4]](http://arxiv.org/abs/1509.02971)
-- [x] Continuous DQN (CDQN or NAF) [[6]](http://arxiv.org/abs/1603.00748)
-- [x] Cross-Entropy Method (CEM) [[7]](http://learning.mpi-sws.org/mlss2016/slides/2016-MLSS-RL.pdf), [[8]](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.81.6579&rep=rep1&type=pdf)
 - [x] Dueling network DQN (Dueling DQN) [[9]](https://arxiv.org/abs/1511.06581)
-- [x] Deep SARSA [[10]](http://people.inf.elte.hu/lorincz/Files/RL_2006/SuttonBook.pdf)
-- [ ] Asynchronous Advantage Actor-Critic (A3C) [[5]](http://arxiv.org/abs/1602.01783)
-- [ ] Proximal Policy Optimization Algorithms (PPO) [[11]](https://arxiv.org/abs/1707.06347)
 
-You can find more information on each agent in the [doc](http://keras-rl.readthedocs.io/en/latest/agents/overview/).
+Note: A customized DRL agent is found in the folder subfolder of "rl".
 
 
-## Installation
-
-- Install Keras-RL from Pypi (recommended):
-
-```
-pip install keras-rl
-```
-
-- Install from Github source:
-
-```
-git clone https://github.com/keras-rl/keras-rl.git
-cd keras-rl
-python setup.py install
-```
-
-## Examples
-
-If you want to run the examples, you'll also have to install:
-- **gym** by OpenAI: [Installation instruction](https://github.com/openai/gym#installation)
-- **h5py**: simply run `pip install h5py`
-
-Once you have installed everything, you can try out a simple example:
-```bash
-python examples/dqn_cartpole.py
-```
-This is a very simple example and it should converge relatively quickly, so it's a great way to get started!
-It also visualizes the game during training, so you can watch it learn. How cool is that?
-
-Some sample weights are available on [keras-rl-weights](https://github.com/matthiasplappert/keras-rl-weights).
-
-If you have questions or problems, please file an issue or, even better, fix the problem yourself and submit a pull request!
+## Results
+All results for 2ST and 3ST are saved in tensorboard format. When launching tensorboard, set the logdir to be "backscatter/logs"
 
 ## Citing
 
-If you use `keras-rl` in your research, you can cite it as follows:
+If you use this code in your research, you can cite it as follows:
 ```bibtex
-@misc{plappert2016kerasrl,
-    author = {Matthias Plappert},
-    title = {keras-rl},
-    year = {2016},
-    publisher = {GitHub},
-    journal = {GitHub repository},
-    howpublished = {\url{https://github.com/keras-rl/keras-rl}},
-}
+@INPROCEEDINGS{8891294,
+author={K. S. H. {Ong} and Y. {Zhang} and D. {Niyato}},
+booktitle={2019 IEEE 90th Vehicular Technology Conference (VTC2019-Fall)},
+title={Cognitive Radio Network Throughput Maximization with Deep Reinforcement Learning},
+year={2019},
+volume={},
+number={},
+pages={1-5},
+keywords={Backscatter;Radio frequency;RF signals;Radio transmitters;Mathematical model;Artificial neural networks;Throughput},
+doi={10.1109/VTCFall.2019.8891294},
+ISSN={},
+month={Sep.},}
 ```
 
 ## References
-
-1. *Playing Atari with Deep Reinforcement Learning*, Mnih et al., 2013
-2. *Human-level control through deep reinforcement learning*, Mnih et al., 2015
-3. *Deep Reinforcement Learning with Double Q-learning*, van Hasselt et al., 2015
-4. *Continuous control with deep reinforcement learning*, Lillicrap et al., 2015
-5. *Asynchronous Methods for Deep Reinforcement Learning*, Mnih et al., 2016
-6. *Continuous Deep Q-Learning with Model-based Acceleration*, Gu et al., 2016
-7. *Learning Tetris Using the Noisy Cross-Entropy Method*, Szita et al., 2006
-8. *Deep Reinforcement Learning (MLSS lecture notes)*, Schulman, 2016
-9. *Dueling Network Architectures for Deep Reinforcement Learning*, Wang et al., 2016
-10. *Reinforcement learning: An introduction*, Sutton and Barto, 2011
-11. *Proximal Policy Optimization Algorithms*, Schulman et al., 2017
+All references are listed within the paper
